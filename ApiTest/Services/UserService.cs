@@ -1,8 +1,8 @@
 ﻿namespace ApiTest.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System;
     using ApiTest.Model;
 
     public class UserService : IUserService
@@ -41,7 +41,6 @@
 
         public User Create(User user)
         {
-
             if (user.Name.Length > 4 && user.Name != null && user.Ci >= 1000000 && user.Ci <= 8000000)
             {
                 if (user.CelPhone < 6000000 || user.CelPhone > 8000000)
@@ -50,21 +49,18 @@
                     }
 
                 if (user.Enabled == null)
+                {
                     user.Enabled = true;
+                }
+               
                 byte pointer = this.users.Max(x => x.Id);
                 pointer++;
                 user.Id = pointer;
            
                 user.CreatioDate = DateTime.Now;
-                //user.LastUpdate = DateTime.Now;
 
-                //user.Enabled = (user.Enabled == null) ? true;
                 this.users.Add(user);
-
             }
-
-
-
 
             return user;
         }
@@ -75,7 +71,6 @@
             if (aimUser != null)
             {
                 User newUser = this.users[this.users.FindIndex(u => u.Id == id)];
-                // this.users[this.users.FindIndex(u => u.Id == id)] = user;
                 if (user.Name != null)
                 {
                     newUser.Name = user.Name;
@@ -86,9 +81,6 @@
                 newUser.Enabled = user.Enabled ?? newUser.Enabled;
                 newUser.CelPhone = user.CelPhone;
                 newUser.LastUpdate = DateTime.Now;
-
-
-
             }
 
             return user;
@@ -110,8 +102,8 @@
             {
                 return aimUser;
             }
+
             return new User();
         }
-
     }
 }

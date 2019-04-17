@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "3c113990-9bea-495e-9919-6b9254bfcce6",
-		"name": "TODO App",
+		"_postman_id": "cede8b2e-b093-4696-bc08-2fd2ec23ffb3",
+		"name": "PracticeNullableTypes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "GET todos",
+			"name": "Get user",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -15,85 +15,115 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:50729/api/todos",
+					"raw": "http://localhost:56667/api/users/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "50729",
+					"port": "56667",
 					"path": [
 						"api",
-						"todos"
+						"users",
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "POST todos",
+			"name": "Get usersList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:56667/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56667",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"description\": \"5345234534\",\n\t\"isActive\":\"true\",\n\t\"user\": {\n\t\t\"name\":\"joel\"\n\t\t}\n}"
+					"raw": "{\n\n\"name\": \"Darwin\",\n\"ci\": 4911697,\n\"cellPhone\": 65667291,\n\"enabled\": true\n\n}\n"
 				},
 				"url": {
-					"raw": "http://localhost:50729/api/todos",
+					"raw": "http://localhost:56667/api/create",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "50729",
+					"port": "56667",
 					"path": [
 						"api",
-						"todos"
+						"create"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "PUT todos",
+			"name": "Update user",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
 						"value": "application/json",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"description\": \"my new description\"\n}"
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"ChuckNNN\",\n    \"ci\": 1234456,\n    \"celPhone\": 888888,\n    \"enabled\": true\n\n}"
 				},
 				"url": {
-					"raw": "http://localhost:50729/api/todos/3",
+					"raw": "http://localhost:56667/api/users/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "50729",
+					"port": "56667",
 					"path": [
 						"api",
-						"todos",
-						"3"
+						"users",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "DELETE todos",
+			"name": "Delete user",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -102,16 +132,16 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:50729/api/todos/3",
+					"raw": "http://localhost:56667/api/users/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "50729",
+					"port": "56667",
 					"path": [
 						"api",
-						"todos",
-						"3"
+						"users",
+						"1"
 					]
 				}
 			},

@@ -14,8 +14,6 @@
 
         User Update(int id, User user);
 
-       // User Login(UserLogin userLogin);
-
         void Delete(int id);
     }
 }
