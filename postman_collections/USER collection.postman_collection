@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "355ea345-5361-456a-9838-234ce3847616",
+		"name": "User collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:50729/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50729",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "Gets the user list for the admin"
+			},
+			"response": []
+		},
+		{
+			"name": "POST users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"id\": 0,\n\"name\": \"Dan\",\n\"lastName\": \"Pan\",\n\"email\": \"dp@gmail.com\",\n\"password\": \"123456\",\n\"role\": \"User\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:50729/api/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50729",
+					"path": [
+						"api",
+						"create"
+					]
+				},
+				"description": "Sends a post request to create a new user."
+			},
+			"response": []
+		},
+		{
+			"name": "PUT users",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 2,\n        \"name\": \"Helene\",\n        \"lastname\": \"Goitia\",\n        \"email\": \"Aksa@gmail.com\",\n        \"password\": \"123456\",\n        \"role\": \"User\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:50729/api/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50729",
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				},
+				"description": "Sends a put request to edit a user."
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:50729/api/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50729",
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				},
+				"description": "deltes user by id"
+			},
+			"response": []
+		},
+		{
+			"name": "POST login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"description": "user login"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"email\": \"cnorris@gmail.com\",\n\"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": ""
+				},
+				"description": "user login "
+			},
+			"response": []
+		}
+	]
+}

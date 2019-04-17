@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "3c113990-9bea-495e-9919-6b9254bfcce6",
+		"name": "TODO App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:50729/api/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50729",
+					"path": [
+						"api",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST todos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\": \"5345234534\",\n\t\"isActive\":\"true\",\n\t\"user\": {\n\t\t\"name\":\"joel\"\n\t\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:50729/api/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50729",
+					"path": [
+						"api",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT todos",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\": \"my new description\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:50729/api/todos/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50729",
+					"path": [
+						"api",
+						"todos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE todos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:50729/api/todos/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "50729",
+					"path": [
+						"api",
+						"todos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
