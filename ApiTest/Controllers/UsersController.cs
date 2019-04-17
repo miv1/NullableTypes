@@ -1,10 +1,10 @@
-﻿namespace ApiTest.Controllers
+﻿namespace Jalasoft.NullableTypes.Api.Controllers
 {
     using System;
     using System.Collections.Generic;
 
-    using ApiTest.Model;
-    using ApiTest.Services;
+    using Jalasoft.NullableTypes.Api.Model;
+    using Jalasoft.NullableTypes.Api.Services;
     using Microsoft.AspNetCore.Mvc;
 
     [Route("api/[controller]")]
@@ -25,7 +25,8 @@
             return this.Ok(this.service.GetAll());
         }
 
-        //[Route("~/api/user")]
+        ////[Route("~/api/user")]
+
         [HttpGet("{id}")]
         public ActionResult<User> GetUser(int id)
         {
@@ -54,7 +55,6 @@
         public void Delete(int id)
         {
             this.service.Delete(id);
-        }
- 
+        } 
     }
 }

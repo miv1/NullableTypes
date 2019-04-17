@@ -1,7 +1,7 @@
-﻿namespace ApiTest.Model
+﻿namespace Jalasoft.NullableTypes.Api.Model
 {
-    using System.Runtime.Serialization;
     using System;
+    using System.Runtime.Serialization;
 
     [DataContract]
     public class User

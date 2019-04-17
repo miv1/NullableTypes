@@ -1,8 +1,8 @@
-﻿namespace ApiTest.Services
+﻿namespace Jalasoft.NullableTypes.Api.Services
 {
     using System.Collections.Generic;
 
-    using ApiTest.Model;
+    using Jalasoft.NullableTypes.Api.Model;
 
     public interface IUserService
     {

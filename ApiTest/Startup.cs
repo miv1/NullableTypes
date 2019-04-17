@@ -1,6 +1,6 @@
-﻿namespace ApiTest
+﻿namespace Jalasoft.NullableTypes.Api
 {
-    using ApiTest.Services;
+    using Jalasoft.NullableTypes.Api.Services;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
