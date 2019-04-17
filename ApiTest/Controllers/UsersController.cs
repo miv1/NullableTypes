@@ -25,6 +25,13 @@
             return this.Ok(this.service.GetAll());
         }
 
+        //[Route("~/api/user")]
+        [HttpGet("{id}")]
+        public ActionResult<User> GetUser(int id)
+        {
+            return this.Ok(this.service.GetUser(id));
+        }
+
         // POST api/users
         [Route("~/api/create")]
         [HttpPost]

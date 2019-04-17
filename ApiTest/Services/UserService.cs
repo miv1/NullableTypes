@@ -103,7 +103,15 @@
             }
         }
 
-        // Roles of users: "Administrator", "User", "Guest"
+        public User GetUser(int id)
+        {
+            var aimUser = this.users.FirstOrDefault(u => u.Id == id);
+            if (aimUser != null)
+            {
+                return aimUser;
+            }
+            return new User();
+        }
 
     }
 }
