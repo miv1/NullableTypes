@@ -38,32 +38,43 @@
         public IEnumerable<User> GetAll()
         {
             return this.users;
-        }
+        }      
 
         public User Create(User user)
         {
-            if (user.Name.Length > 4 && user.Name != null && user.Ci >= 1000000 && user.Ci <= 8000000)
+            if (this.VerifyNullable(user.Ci) != -1)
             {
-                if (user.CelPhone < 6000000 || user.CelPhone > 8000000)
-                   {
-                     user.CelPhone = null;
-                    }
-
-                if (user.Enabled == null)
+                if (this.VerifyCondition(1000000, 8000000, Convert.ToInt32(user.Ci)))
                 {
-                    user.Enabled = true;
-                }
-               
-                byte pointer = this.users.Max(x => x.Id);
-                pointer++;
-                user.Id = pointer;
-           
-                user.CreatioDate = DateTime.Now;
+                    if (user.Name.Length > 4 && user.Name != null)
+                    {
+                        if (this.VerifyNullable(user.CelPhone) != -1)
+                        {
+                            if (!this.VerifyCondition(6000000, 8000000, Convert.ToInt32(user.CelPhone)))
+                            {
+                                user.CelPhone = null;
+                            }
 
-                this.users.Add(user);
+                            if (user.Enabled == null)
+                            {
+                                user.Enabled = true;
+                            }
+
+                            byte pointer = this.users.Max(x => x.Id);
+                            pointer++;
+                            user.Id = pointer;
+
+                            user.CreatioDate = DateTime.Now;
+
+                            this.users.Add(user);
+                        }
+                    }
+                }
+
+                return user;
             }
 
-            return user;
+            return new User();
         }
 
         public User Update(int id, User user)
@@ -105,6 +116,22 @@
             }
 
             return new User();
+        }
+
+        private bool VerifyCondition(int minValue, int maxValue, int input)
+        {
+            if (minValue <= input && input <= maxValue)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private int VerifyNullable(int? value)
+        {
+            int result = value ?? -1;
+            return result;
         }
     }
 }
