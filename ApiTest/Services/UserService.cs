@@ -9,6 +9,7 @@
     public class UserService : IUserService
     {
         private List<User> users;
+        Validation validation = new Validation();
 
         public UserService()
         {
@@ -38,38 +39,17 @@
         public IEnumerable<User> GetAll()
         {
             return this.users;
-        }      
+        }
 
         public User Create(User user)
         {
-            if (this.VerifyNullable(user.Ci) != -1)
+            if (validation.VerifyCondition(1000000, 8000000, 6000000, 8000000, user) == "Ok")
             {
-                if (this.VerifyCondition(1000000, 8000000, Convert.ToInt32(user.Ci)))
-                {
-                    if (user.Name.Length > 4 && user.Name != null)
-                    {
-                        if (this.VerifyNullable(user.CelPhone) != -1)
-                        {
-                            if (!this.VerifyCondition(6000000, 8000000, Convert.ToInt32(user.CelPhone)))
-                            {
-                                user.CelPhone = null;
-                            }
-
-                            if (user.Enabled == null)
-                            {
-                                user.Enabled = true;
-                            }
-
-                            byte pointer = this.users.Max(x => x.Id);
-                            pointer++;
-                            user.Id = pointer;
-
-                            user.CreatioDate = DateTime.Now;
-
-                            this.users.Add(user);
-                        }
-                    }
-                }
+                byte pointer = this.users.Max(x => x.Id);
+                pointer++;
+                user.Id = pointer;
+                user.CreatioDate = DateTime.Now;
+                this.users.Add(user);
 
                 return user;
             }
@@ -120,7 +100,7 @@
 
         private bool VerifyCondition(int minValue, int maxValue, int input)
         {
-            if (minValue <= input && input <= maxValue)
+            if (minValue - 1 < input && input <= maxValue)
             {
                 return true;
             }
